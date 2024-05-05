@@ -73,11 +73,12 @@ function pma_run_command_adapter {
 
 function pma_print_help {
     Write-Output @"
-Usage: hpm <command> [<options>...]
+Usage: pma <command> <adapter> [<options>...]
 
 Available commands:
-    help             Print this help message.
     install          Install packages.
     list             List packages.
+    uninstall        Uninstall packages.
+    update           update packages.
 "@
 }
