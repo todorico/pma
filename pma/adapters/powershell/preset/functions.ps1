@@ -6,7 +6,6 @@ $PMA_HOME = $PMA_HOME, $env:PMA_HOME, ([System.IO.DirectoryInfo] $PSScriptRoot).
 # List
 #
 
-
 function list_preset_files {
     param([Parameter(Mandatory=$false)] [string] $filter = "*.ps1")
 
@@ -27,7 +26,11 @@ function install_adapter {
 }
 
 function install_packages {
-    param([Parameter(Mandatory=$false)] [string[]] $packages = @())
+    param([Parameter(Mandatory=$false)] [string[]] $packages)
+
+    if ($packages -contains "all") {
+        $packages = list_packages
+    }
 
     Set-Alias -Name pma -Value invoke_pma -Option AllScope
 

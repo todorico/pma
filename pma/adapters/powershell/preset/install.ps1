@@ -17,7 +17,7 @@ Options:
 
 function main {
     $options = parse-list-options $args
-    $supported_options = [string[]] @("packages", "overrides")
+    $supported_options = [string[]] @("packages")
     $unsupported_options = [string[]] [Linq.Enumerable]::Except([string[]] $options.keys, $supported_options)
 
     if ($unsupported_options) {
