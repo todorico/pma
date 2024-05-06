@@ -1,7 +1,7 @@
 param(
     [Parameter(Mandatory=$true)] [string] $COMMAND,
     [Parameter(Mandatory=$true)] [string] $ADAPTER,
-    [Parameter(ValueFromRemainingArguments=$true)] [string[]] $args = @("-packages")
+    [Parameter(ValueFromRemainingArguments=$true)] [string[]] $args
 )
 
 function usage {
@@ -20,7 +20,7 @@ Options:
 function main {
     check_adapter_installed $ADAPTER
 
-    if ($args -eq @("-packages") ) {
+    if (-not $args -or ($args -eq @("-packages"))) {
         list_packages
     }
     elseif ($args -eq @("-buckets")) {

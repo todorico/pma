@@ -1,8 +1,8 @@
 param(
     [Parameter(Mandatory=$false)]
-    [string]$command,
+    [string] $command,
     [Parameter(ValueFromRemainingArguments=$true)]
-    [string[]]$args
+    [string[]] $args
 )
 
 
@@ -16,4 +16,7 @@ if (-not ($command -and (pma_has_command $command))) {
     exit 1
 }
 
-pma_run_command $command @args
+# $forwarded_args = parse-list-options $args
+# $forwarded_args
+
+pma_run_command $command $args

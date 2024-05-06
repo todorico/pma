@@ -79,7 +79,7 @@ function check_adapter_installed {
     }
 
     Write-Output @"
-Error: Adapter '$adapter' is not installed. Use the following command to install it. [-packages | -buckets]
+Error: Adapter '$adapter' is not installed. Use the following command to install it.
 
   pma install $adapter
 "@

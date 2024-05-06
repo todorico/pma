@@ -1,7 +1,7 @@
 param(
     [Parameter(Mandatory=$true)] [string] $COMMAND,
     [Parameter(Mandatory=$true)] [string] $ADAPTER,
-    [Parameter(ValueFromRemainingArguments=$true)] [string[]] $args = @("-packages")
+    [Parameter(ValueFromRemainingArguments=$true)] [string[]] $args
 )
 
 function usage {
@@ -16,12 +16,15 @@ Options:
 . "$PSScriptRoot/functions.ps1"
 
 function main {
-    if (-not ($args -eq @("-packages"))) {
+    # check_adapter_installed $ADAPTER
+
+    if (-not $args -or ($args -eq @("-packages"))) {
+        list_packages
+    }
+    else {
         usage
         exit 1
     }
-
-    list_packages
 }
 
 main @args

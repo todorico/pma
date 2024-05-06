@@ -16,13 +16,16 @@ function pma_run_command {
     param(
         [Parameter(Mandatory=$true)]
         [string] $command,
-        [Parameter(ValueFromRemainingArguments=$true)]
-        [string[]]$args
+        [Parameter(ValueFromRemainingArguments=$false)]
+        [string[]] $args
     )
 
     $commandScript = "$PMA_HOME/commands/$command.ps1"
 
-    # . $commandScript
+    if ($args.Count -eq 0) {
+        pma_print_help
+        exit 1
+    }
 
     return & $commandScript $command @args
 }
