@@ -1,7 +1,7 @@
 param(
     [Parameter(Mandatory=$true)] [string] $COMMAND,
     [Parameter(Mandatory=$true)] [string] $ADAPTER,
-    [Parameter(ValueFromRemainingArguments=$true)] [string[]] $args = @()
+    [Parameter(ValueFromRemainingArguments=$true)] [string[]] $args
 )
 
 function usage {
