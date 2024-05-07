@@ -27,7 +27,7 @@ function main {
         exit 1
     }
 
-    if ($options) {
+    if ($options.Count -gt 0) {
         update_packages -packages (@() + $options.packages)
     }
     else {

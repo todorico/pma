@@ -26,7 +26,7 @@ function main {
         exit 1
     }
 
-    if ($options) {
+    if ($options.Count -gt 0) {
         uninstall_buckets -buckets (@() + $options.buckets + $buckets)
         uninstall_packages -packages (@() + $options.packages)
     }

@@ -90,9 +90,9 @@ function Test-Prerequisite {
     }
 
     # Test if scoop is installed, by checking if scoop command exists.
-    if (Test-CommandAvailable('pma')) {
-        Deny-Install "Scoop is already installed. Run 'scoop update' to get the latest version."
-    }
+    # if (Test-CommandAvailable('pma')) {
+    #     Deny-Install "Pma is already installed. Run 'scoop update' to get the latest version."
+    # }
 }
 
 function Get-Downloader {

@@ -25,7 +25,7 @@ function main {
         exit 1
     }
 
-    if ($options) {
+    if ($options.Count -gt 0) {
         uninstall_packages -packages (@() + $options.packages)
     }
     elseif (is_adapter_installed){

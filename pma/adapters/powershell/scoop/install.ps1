@@ -30,7 +30,7 @@ function main {
         install_adapter
     }
 
-    if ($options) {
+    if ($options.Count -gt 0) {
         install_buckets -buckets (@() + $options.buckets + $buckets)
         install_packages -packages (@() + $options.packages)
     }

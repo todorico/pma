@@ -29,7 +29,7 @@ function main {
         install_adapter
     }
 
-    if ($options) {
+    if ($options.Count -gt 0) {
         install_packages -packages (@() + $options.packages)
     }
 }
