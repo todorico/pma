@@ -10,6 +10,10 @@ function list_preset_files {
     param([Parameter(Mandatory=$false)] [string] $filter = "*.ps1")
 
     $presetsDir = "$PMA_HOME/presets"
+    if (-not (Test-Path $presetsDir)) {
+        return @()
+    }
+
     return Get-ChildItem -Path $presetsDir -Filter $filter
 }
 
