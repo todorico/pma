@@ -17,6 +17,13 @@ function list_packages {
 function install_adapter {
     # TODO: update PIPX_HOME value
 
+    $PIPX_HOME = Get-Env 'PIPX_HOME'
+
+    if(-not $PIPX_HOME) {
+        Write-Env 'PIPX_HOME' "$HOME\.local\pipx"
+        $env:PIPX_HOME = "$HOME\.local\pipx"
+    }
+
     $installer = "$PMA_HOME/adapters/powershell/scoop/install.ps1"
     & $installer install scoop -packages pipx
 }
