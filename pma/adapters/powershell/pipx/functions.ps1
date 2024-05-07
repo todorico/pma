@@ -21,15 +21,15 @@ function install_adapter {
     $PIPX_HOME = Get-Env 'PIPX_HOME'
 
     if(-not $PIPX_HOME) {
-        Write-Env 'PIPX_HOME' "$HOME\.local\pipx"
-        $env:PIPX_HOME = "$HOME\.local\pipx"
+        Write-Env 'PIPX_HOME' "$env:LOCALAPPDATA\pipx"
+        $env:PIPX_HOME = "$env:LOCALAPPDATA\pipx"
     }
 
     $SHIV_ROOT = Get-Env 'SHIV_ROOT'
 
     if(-not $SHIV_ROOT) {
-        Write-Env 'SHIV_ROOT' "$HOME\.local\shiv"
-        $env:SHIV_ROOT = "$HOME\.local\shiv"
+        Write-Env 'SHIV_ROOT' "$env:LOCALAPPDATA\shiv"
+        $env:SHIV_ROOT = "$env:LOCALAPPDATA\shiv"
     }
 
     $installer = "$PMA_HOME/adapters/powershell/scoop/install.ps1"
