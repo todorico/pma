@@ -25,6 +25,13 @@ function install_adapter {
         $env:PIPX_HOME = "$HOME\.local\pipx"
     }
 
+    $SHIV_ROOT = Get-Env 'SHIV_ROOT'
+
+    if(-not $SHIV_ROOT) {
+        Write-Env 'SHIV_ROOT' "$HOME\.local\shiv"
+        $env:SHIV_ROOT = "$HOME\.local\shiv"
+    }
+
     $installer = "$PMA_HOME/adapters/powershell/scoop/install.ps1"
     & $installer install scoop -packages pipx
 }
