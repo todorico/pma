@@ -1,5 +1,6 @@
 $PMA_HOME = $PMA_HOME, $env:PMA_HOME, ([System.IO.DirectoryInfo] $PSScriptRoot).Parent.Parent.Parent | Select-Object -First 1
 
+. "$PMA_HOME/tools/env.ps1"
 . "$PMA_HOME/tools/utilities.ps1"
 
 #
